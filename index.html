@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Counselor</title>
+    <style>
+        body {
+            color: black;
+            font-weight: bold;
+            font-family: Arial;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background:#2C3E50;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            margin: 0;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 48px; 
+            height: auto; 
+            margin-right: 20px; 
+        }
+
+        .nav ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .nav ul li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        .nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding-left: 10px; 
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #2C3E50;
+            width: 350px; 
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            padding: 10px;
+            left: calc(100% - 350px); 
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            color: black;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            font-size: 15pt;
+            position: relative;
+            background: white;
+            border-radius: 10px; 
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+        }
+
+        .text-container {
+            flex: 1; 
+            margin-right: 20px; 
+        }
+
+        .logo-image {
+            width: 537px;
+            height: 500px;
+            margin-left: 20px; 
+        }
+
+        .box {
+            flex: 1; 
+        }
+
+        footer {
+            background: #2C3E50;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .blue-text {
+            color: #ADD8E6;
+            font-weight: bold;
+        }
+
+        .services-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap; 
+            margin-top: 20px;
+            overflow-x: auto; 
+        }
+
+        .service-box {
+            width: 250px; 
+            margin: 10px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .service-image {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+
+        .signup-button {
+            width: 250px; 
+            height: 50px;
+            border-radius: 2%; 
+            background-color: #ADD8E6; 
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .signup-button:hover {
+            background-color: #2C3E50; 
+        }
+
+	    .highlighted {
+            color: #ADD8E6; 
+            text-shadow: 0 0 10px #2C3E50; 
+            background-color: white; 
+            padding: 2px 4px; 
+            border-radius: 2px; 
+        }
+  
+        .pdf-link {
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #ADD8E6; 
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .pdf-link:hover {
+            color: #2C3E50; 
+        }
+ .pdf-section {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .pdf-container {
+            width: 100%;
+            height: 600px;
+            overflow: auto;
+        }
+        .pdf-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+	  .prototype-section {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .prototype-container {
+            width: 100%;
+            height: 600px;
+            overflow: auto;
+        }
+        .prototype-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+	  .survey-findings {
+            color: #2C3E50; 
+        }
+        .research-insights {
+            color: #ADD8E6; 
+        }
+	  .survey-findings {
+            color: #2C3E50; 
+        }
+        .research-insights {
+            color: #ADD8E6;
+        }
+        .section-heading {
+            color: #ADD8E6; 
+            font-weight: bold;
+        }
+        .key-points {
+            list-style-type: disc;
+            color: black;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <h1 class="logo-text">i-Coach</h1>
+        <img src="coach.png" alt="Small Logo">
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li class="dropdown">
+                <a href="#">Services</a>
+                <div class="dropdown-content">
+                    <a href="chat.html">Nova Bot</a>
+             	    <a href="#">Essay Feedback & Editing Suggestions</a>
+                    <a href="#">Application Timeline & Checklist</a>
+                    <a href="#">Virtual Campus Tours & Testimonials</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<section>
+    <div class="box text-container">
+        <h2>Welcome to <span class="blue-text">i-Coach!</span></h2>
+        <p>This website serves as an information hub for i-Coach, featuring a Figma prototype implementation. Nova Chatbot is at the forefront, aiming to provide personalized guidance and support for high school students as they navigate the college preparation process.</p>
+
+        <button class="signup-button">Sign Up</button>
+    </div>
+    <div class="box">
+        <img src="coach.png" alt="Logo" class="logo-image">
+    </div>
+</section>
+<div class="container">
+   <center>
+    <h1>Addressing College Admission Challenges</h1>
+</center>
+</div>
+<div style="max-width: 800px; margin: 50px auto; padding: 20px; background-color: #ADD8E6; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+    <h1 style="color: #fff; text-align: center; margin-bottom: 20px;">Problem Statement</h1>
+    <p style="color: #fff; line-height: 1.6; text-align: justify;">
+        High school students face significant challenges when applying to college, particularly in writing essays and understanding financial aid. The complexity of the college application and admission process, compounded by a lack of accessible guidance, exacerbates these difficulties. Immigrant families, in particular, often lack the necessary knowledge and resources to navigate this intricate process effectively.
+    </p>
+    <p style="color: #fff; line-height: 1.6; text-align: justify;">
+        Moreover, the high cost of college admission counselors further limits access to valuable assistance, with average rates reaching $82 per hour. Additionally, the scattered nature of available information complicates matters, leaving students without a centralized guide for their college application journey. Furthermore, crucial details such as the benefits of AP classes, lesser-known programs like the Congressional Awards, and opportunities presented by state-wide or nation-wide contests remain hidden from students who lack access to professional counseling.
+    </p>
+</div>
+<div style="max-width: 800px; margin: 50px auto; padding: 20px; background-color: #ADD8E6; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+    <h1 style="color: #fff; text-align: center; margin-bottom: 20px;">Solution Overview</h1>
+    <p style="color: #fff; line-height: 1.6; text-align: justify;">
+        Our project introduces an AI counselor to help students with these challenges. We made sure it meets what students need by using survey results.
+    </p>
+    <p style="color: #fff; line-height: 1.6; text-align: justify;">
+        Our solution is based on the fact that the work that college admission counselors do is almost all based on patterns. These patterns include what percentage of students that got accepted from a specific place took a certain class or joined a certain event. AI can recognize these patterns even better than college counselors and use its data to help students with their college admission process that starts from the moment they enter high school.
+    </p>
+</div>
+<div style="max-width: 800px; margin: 50px auto; padding: 20px; background-color: #ADD8E6; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+    <h1 style="color: #fff; text-align: center; margin-bottom: 20px;">Unique Value Statement</h1>
+    <p style="color: #fff; line-height: 1.6; text-align: justify;">
+        Our AI-counselor will be a step towards education equity, as it’s going to be way cheaper than actual college admission counselors. It will help students from all family classes to utilize all the sources out there to get into their dream college.
+    </p>
+    <p style="color: #fff; line-height: 1.6; text-align: justify;">
+        Additionally, our solution supports immigrant families by providing accessible guidance and resources, addressing the specific challenges they face in navigating the college admissions process.
+    </p>
+    <p style="color: #fff; line-height: 1.6; text-align: justify;">
+        Furthermore, our AI-counselor eliminates the concept of “hidden” information by leveraging AI algorithms to identify and share valuable insights and opportunities that may not be widely known among students.
+    </p>
+    <p style="color: #fff; line-height: 1.6; text-align: justify;">
+        Lastly, our AI-counselor ensures quality patterns are recognized and utilized, optimizing students' chances of success by providing tailored guidance based on data-driven insights and proven strategies.
+    </p>
+</div>
+<section class="pdf-section">
+    <h2>Research Findings</h2>
+    <div class="pdf-container">
+        <iframe src="researchfindings.pdf"></iframe>
+    </div>
+</section>
+<section id="pdf-research">
+    <div class="container">
+        <h2 class="section-heading">Survey Findings</h2>
+        <div class="survey-findings">
+            <!-- Include survey findings here -->
+            <ul class="key-points">
+                <li>53.8% of respondents find personalized college recommendations extremely important.</li>
+                <li>92.3% of respondents would find an application timeline and checklist helpful in an AI-powered college admission counselor.</li>
+                <li>76.9% of respondents currently use college websites and brochures as resources to navigate the college admissions process.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="section-heading">Research Insights</h2>
+        <div class="research-insights">
+            <!-- Include research insights here -->
+            <ul class="key-points">
+                <li>Common concerns and frustrations with the college admissions process include writing essays, financial aid, and standardized testing.</li>
+                <li>Key areas for improvement in the college admissions process include making information easily accessible and reducing costs.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<section class="key-features">
+    <h2>Key Features of i-Coach</h2>
+   
+ 
+</section>
+
+<section>
+
+
+  
+        <div class="service-box">
+            <img src="coach.png" alt="Service Image" class="service-image">
+            <h3>Essay Help</h3>
+            <p>i-Coach leverages state-of-the-art natural language processing (NLP) algorithms to analyze students' essays comprehensively. It provides tailored feedback to enhance the structure, flow, and impact of the essay, ensuring that the final essay reflects the student's voice while effectively conveying their message to admissions officers.</p>
+        </div>
+        <div class="service-box">
+            <img src="essay.jpg" alt="Service Image" class="service-image">
+            <h3>Application Guidance</h3>
+            <p>i-Coach offers multifaceted application guidance, considering various aspects of the student's academic and extracurricular profile. It formulates personalized plans tailored to each student's goals and target institutions, providing strategic advice to help students stand out in the competitive admissions process.</p>
+        </div>
+        <div class="service-box">
+            <img src="deadline.jpeg" alt="Service Image" class="service-image">
+            <h3>Deadline Setting</h3>
+            <p>i-Coach provides a dynamic deadline management system that creates customized task lists and milestones tailored to each student's unique circumstances. It continuously monitors progress and adjusts deadlines based on real-time feedback and changing priorities, ensuring that students stay organized, motivated, and on track to meet application deadlines.</p>
+        </div>
+        <div class="service-box">
+            <img src="tour.jpg" alt="Service Image" class="service-image">
+            <h3>Virtual Campus Tours</h3>
+            <p>i-Coach offers immersive, interactive virtual tours powered by cutting-edge virtual reality (VR) technology. Students can explore campus facilities, dormitories, classrooms, and recreational areas from the comfort of their own homes. Live guided tours led by current students or alumni provide personalized and memorable experiences that go beyond static images or pre-recorded videos.</p>
+        </div>
+    </div>
+</section>
+<section class="prototype-section">
+    <h2>Figma Prototype</h2>
+    <div class="prototype-container">
+        <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FKqVKZQ2B92NtH5W1wJB9oG%2FCollege-Admission-Counselor-AI%3Fnode-id%3D1-4%26scaling%3Dscale-down%26page-id%3D0%253A1%26starting-point-node-id%3D1%253A4%26show-proto-sidebar%3D1%26mode%3Ddesign%26t%3DCZIdBVQMMFWVMf5w-1" allowfullscreen"></iframe>
+</section>
+
+<div class="container">
+   <center>
+    <h1>Enhancing Accessibility and Security: Our Commitment to User Experience and Data Protection</h1>
+</center>
+</div>
+    </div>
+<section class="pdf-section">
+   
+    <div class="pdf-container">
+        <iframe src="practices.pdf"></iframe>
+    </div>
+</section>
+<div class="container">
+   <center>
+    <h1>Revolutionizing College Admissions with AI Guidance</h1>
+</center>
+</div>
+
+<div style="max-width: 800px; margin: 50px auto; padding: 20px; background-color: #ADD8E6; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+    <h2 style="color: #fff; text-align: center; margin-bottom: 20px;">College Admissions Counselor AIs</h2>
+    <p style="color: #fff; line-height: 1.6; text-align: justify;">Do College Admissions Counselor AIs not exist already? Well, they do, but they're quite limited in their scope. They serve more as supplements to human counselors rather than replacements. For instance, take Keplan AI. It only answers questions, offers basic info on AP classes, SAT/ACT exams, and provides some essay assistance. However, it doesn't truly guide or recommend, lacking the essence of a real counselor.</p>
+</div>
+
+<div style="max-width: 800px; margin: 50px auto; padding: 20px; background-color: #ADD8E6; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+    <h2 style="color: #fff; text-align: center; margin-bottom: 20px;">How Will Ours be Superior?</h2>
+    <ul style="color: #fff; line-height: 1.6; text-align: justify;">
+        <li>It's not just going to answer questions; it'll recommend classes and programs tailored to each student.</li>
+        <li>It won't just sit there; it'll warn students about factors that might hurt their chances of admission.</li>
+        <li>It won't just be a passive helper; it'll make personalized plans for students and explain the best pathways to their dream colleges.</li>
+        <li>And guess what? It'll even send notifications about upcoming events and contests. Who needs a human counselor when you've got that?</li>
+    </ul>
+</div>
+
+<div style="max-width: 800px; margin: 50px auto; padding: 20px; background-color: #ADD8E6; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+    <h2 style="color: #fff; text-align: center; margin-bottom: 20px;">Utilizing AI</h2>
+    <ul style="color: #fff; line-height: 1.6; text-align: justify;">
+        <li>Well, we're going to build an interactive chatbot, obviously. It'll be like a tireless researcher, constantly scanning the web for the latest info on events and contests.</li>
+        <li>And then, there's the heavy lifting: analyzing admission patterns. Our AI will dig deep into the data to uncover what really makes someone more likely to get into a certain college or major.</li>
+    </ul>
+</div>
+
+<div style="max-width: 800px; margin: 50px auto; padding: 20px; background-color: #ADD8E6; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+    <h2 style="color: #fff; text-align: center; margin-bottom: 20px;">Why is This the Perfect AI Project?</h2>
+    <p style="color: #fff; line-height: 1.6; text-align: justify;">Think about it. College counselors base their work on patterns. They guide students to their dream colleges based on these patterns. And you know what? AI is great at recognizing patterns. It's like a super-powered counselor. Plus, there's a huge gap right now. There's no one place where all the national or state-wide contests and programs are announced. So many students miss out on opportunities they could really benefit from. But with our AI, we'll fix that. It'll keep track of all the contests and programs out there and recommend the best ones for each student. It's a win-win.</p>
+</div>
+
+
+<footer>
+    <p3>Reference: Miller, D., & Dan Miller. (2023, November 22). How much does a college admissions consultant cost?. The College Investor. <a href="https://thecollegeinvestor.com/43895/college-admissions-consultant/#:~:text=Pricing%20for%20a%20college%20admissions,be%20worthwhile%20in%20some%20scenarios" target="_blank">https://thecollegeinvestor.com/43895/college-admissions-consultant/#:~:text=Pricing%20for%20a%20college%20admissions,be%20worthwhile%20in%20some%20scenarios</a></p3>
+</footer>
+
+</body>
+</html>
+
+
